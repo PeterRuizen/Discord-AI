@@ -1,4 +1,10 @@
 #envoirment
 .env
 .venv
+
+
 ./vscode
+__pychache__
+__pycache__/settings.cpython-312.pyc
+
+infos.log
