@@ -5,8 +5,15 @@ from discord.ext import commands
 
 logger = settings.logging.getLogger("bot")
 
-async def is_owner(ctx):
-    return ctx.author.id == ctx.guild.owner_id
+class NotOwner(commands.CheckFailure):
+    ...
+
+def is_owner(ctx):
+    async def predicate(ctx):
+        if ctx.author.id != ctx.guild.owner_id:
+            raise NotOwner("You are not the owner of this server.")
+        return True
+    return commands.check(predicate)
 
 def run():
     intents = discord.Intents.default()
@@ -35,9 +42,14 @@ def run():
         await bot.load_extension(f"cogs.{cog.lower()}")
 
     @bot.command()
-    @commands.check(is_owner)
+    @is_owner()
     async def unload(ctx, cog: str):
-        await bot.unload_extension(f"cogs.{cog.lower()}")    
+        await bot.unload_extension(f"cogs.{cog.lower()}")  
+
+    @unload.error
+    async def unload_error(ctx, error):
+        if isinstance(error, NotOwner):
+            await ctx.send("You are not the owner of this server.")  
 
     bot.run(settings.DISCORD_API_SECRET, root_logger=True)
 
