@@ -8,7 +8,7 @@ logger = settings.logging.getLogger("bot")
 class NotOwner(commands.CheckFailure):
     ...
 
-def is_owner(ctx):
+def is_owner():
     async def predicate(ctx):
         if ctx.author.id != ctx.guild.owner_id:
             raise NotOwner("You are not the owner of this server.")
