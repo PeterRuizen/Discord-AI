@@ -7,6 +7,7 @@ from logging.config import dictConfig
 load_dotenv()
 
 DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
+BOT_OWNER_ID = int(os.getenv("BOT_OWNER_ID"))
 
 BASE_DIR = pathlib.Path(__file__).parent
 
