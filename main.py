@@ -1,6 +1,5 @@
 import settings
 import discord
-import cogs.connect
 from discord.ext import commands
 
 logger = settings.logging.getLogger("bot")
