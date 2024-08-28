@@ -8,7 +8,7 @@ An app used to create a webhook for Discord that will send en recieve voice data
 
 1.)  This is written in python 3.12.1
 
-2.)  Run pip install -r requirements.txt to install all the modules needed.
+2.)  Run pip install -r requirements.txt to install all the dependencies needed.
 
 3.)  Fill out the env file with your details
 
