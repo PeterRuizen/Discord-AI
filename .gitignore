@@ -1,4 +1,11 @@
 #envoirment
 .env
 .venv
+Lib/
+Scripts/
+pyvenv.cfg
+
 ./vscode
+__pycache__/
+
+infos.log
