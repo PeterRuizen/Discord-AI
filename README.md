@@ -1,5 +1,7 @@
 ## Discord AI
 
+"!!! WIP !!! For now only the recording of a discord call is possible"
+
 The idea of the app I'm trying to make is explained below. In short this should enable you to talk to an ai using speech in a Discord channel.
 
 An app used to create a webhook for Discord that will send en recieve voice data, based on that data it will use OpenAi's Whisper to turn speech to text. The text will be fed into a local instance of Llama that will generate a response. The response will then be transformed to speech using TTS and send via the webhook to Discord.
